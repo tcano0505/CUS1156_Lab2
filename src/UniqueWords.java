@@ -9,17 +9,25 @@ public class UniqueWords
    */
    public static int countUnique(ArrayList<String> list)
    {
-	  int count = 0;
+	int count=0;
 	  
       for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
+      {	
+    	  for (int j = i+1 ; j < list.size(); j++)
 		 {
-			
-		 }
+    		if(list.get(i).equals(list.get(j))) {
+    			list.remove(j);	//this will remove the space where the duplicate is instead of the the word entirely
+    			
+    		}
+    
+    	}
+    	  count++;
       }
-	  return count;
+	  
+      return count;
+      
    }
-
+   
    public static void main(String[] args)
    {
       ArrayList <String> words = new ArrayList<>();
@@ -34,4 +42,6 @@ public class UniqueWords
 	  int unique = countUnique(words);
       System.out.println(words + " has " + unique + " unique words");
    }
+}
+
 }
